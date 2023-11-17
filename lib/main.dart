@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:untitled4/app_router.dart';
 void main(){
-  runApp(MyApp());
+  runApp(BreakingBadApp(appRouter: AppRouter(),));
 }
 
-class MyApp extends StatelessWidget{
+class BreakingBadApp extends StatelessWidget{
+
+  final AppRouter appRouter;
+
+  const BreakingBadApp({super.key, required this.appRouter});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.blue,
-      ),
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: appRouter.generateRoute
     );
   }
 }
+
